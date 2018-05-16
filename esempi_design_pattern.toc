@@ -1,0 +1,25 @@
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\contentsline {section}{\numberline {1}Design pattern - STRUTTURALI}{2}
+\contentsline {subsection}{\numberline {1.1}Adapter}{2}
+\contentsline {subsubsection}{\numberline {1.1.1}Descrizione}{2}
+\contentsline {subsubsection}{\numberline {1.1.2}Esempio}{3}
+\contentsline {subsection}{\numberline {1.2}Decorator}{5}
+\contentsline {subsubsection}{\numberline {1.2.1}Descrizione}{5}
+\contentsline {subsubsection}{\numberline {1.2.2}Esempio}{6}
+\contentsline {subsection}{\numberline {1.3}Facade}{7}
+\contentsline {subsubsection}{\numberline {1.3.1}Descrizione}{7}
+\contentsline {subsubsection}{\numberline {1.3.2}Esempio}{8}
+\contentsline {subsection}{\numberline {1.4}Proxy}{9}
+\contentsline {subsubsection}{\numberline {1.4.1}Descrizione}{9}
+\contentsline {subsubsection}{\numberline {1.4.2}Esempio}{10}
+\contentsline {section}{\numberline {2}Design pattern - CREAZIONALI}{12}
+\contentsline {subsection}{\numberline {2.1}Singleton}{12}
+\contentsline {subsubsection}{\numberline {2.1.1}Descrizione}{12}
+\contentsline {subsubsection}{\numberline {2.1.2}Esempio}{13}
+\contentsline {subsection}{\numberline {2.2}Builder}{15}
+\contentsline {subsubsection}{\numberline {2.2.1}Descrizione}{15}
+\contentsline {subsubsection}{\numberline {2.2.2}Esempio}{16}
+\contentsline {subsection}{\numberline {2.3}Abstract Factory}{19}
+\contentsline {subsubsection}{\numberline {2.3.1}Descrizione}{19}
+\contentsline {subsubsection}{\numberline {2.3.2}Esempio}{20}
