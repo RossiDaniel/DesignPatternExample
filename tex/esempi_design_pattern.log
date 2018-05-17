@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650) (preloaded format=pdflatex 2018.4.12)  16 MAY 2018 10:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650) (preloaded format=pdflatex 2018.4.12)  17 MAY 2018 20:46
 entering extended mode
-**/home/daniel/Documenti/DesignPatternExample/esempi_design_pattern.tex
-(/home/daniel/Documenti/DesignPatternExample/esempi_design_pattern.tex
+**/home/daniel/Documenti/DesignPatternExample/tex/esempi_design_pattern.tex
+(/home/daniel/Documenti/DesignPatternExample/tex/esempi_design_pattern.tex
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 0 language(s) loaded.
 (/home/daniel/.miktex/texmfs/install/tex/latex/base/article.cls
@@ -759,15 +759,83 @@ Package pdftex.def Info: img/IC130807.jpg  used on input line 666.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [19 <./img/IC92016.jpg>] [20 <./img/IC130807.jpg>] [21]
+Overfull \hbox (7.89792pt too wide) in paragraph at lines 757--758
+[]\T1/cmr/m/n/10 per consentire l'annullamento delle operazioni eseguite (undo,
+ rollback), mantenendo preventivamente
+ []
+
+
+Overfull \hbox (31.60822pt too wide) in paragraph at lines 759--760
+\T1/cmr/m/n/10 Il vantaggio più significativo nell'applicazione di questo patte
+rn è il fatto di ottenere un perfetto disaccoppiamento
+ []
+
+<img/IC138773.jpg, id=89, 447.6725pt x 293.095pt>
+File: img/IC138773.jpg Graphic file (type jpg)
+<use img/IC138773.jpg>
+Package pdftex.def Info: img/IC138773.jpg  used on input line 763.
+(pdftex.def)             Requested size: 223.8357pt x 146.54713pt.
+<img/IC65512.jpg, id=90, 483.8075pt x 381.425pt>
+File: img/IC65512.jpg Graphic file (type jpg)
+<use img/IC65512.jpg>
+Package pdftex.def Info: img/IC65512.jpg  used on input line 778.
+(pdftex.def)             Requested size: 362.85474pt x 286.06804pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[22 <./img/IC138773.jpg>]
+Overfull \hbox (7.29935pt too wide) in paragraph at lines 784--785
+\T1/cmr/m/n/10 nome di ciascun comando appartenente alla sequenza. L'oggetto di
+ destinazione pertanto è System.Console:
+ []
+
+
+Overfull \hbox (4.6148pt too wide) in paragraph at lines 784--785
+\T1/cmr/m/n/10 Reader e Writer portano a compimento le operazioni desiderate sf
+ruttando il suo metodo WriteLine(string).
+ []
+
+[23 <./img/IC65512.jpg>] [24] [25]
+Overfull \hbox (3.35587pt too wide) in paragraph at lines 877--878
+\T1/cmr/m/n/10 prescindere dal loro numero (per esempio, altri controlli). In q
+uesto caso la modifica dello stato dell'oggetto
+ []
+
+<img/IC68568.jpg, id=104, 477.785pt x 355.3275pt>
+File: img/IC68568.jpg Graphic file (type jpg)
+<use img/IC68568.jpg>
+Package pdftex.def Info: img/IC68568.jpg  used on input line 881.
+(pdftex.def)             Requested size: 238.8919pt x 177.6633pt.
+
+Overfull \hbox (4.67093pt too wide) in paragraph at lines 888--889
+[]\T1/cmr/bx/n/10 Observer\T1/cmr/m/n/10 : Fornisce l'interfaccia di notifica p
+er gli oggetti a cui devono essere segnalati i cambiamenti
+ []
+
+
+Overfull \hbox (2.38446pt too wide) in paragraph at lines 890--891
+[]\T1/cmr/bx/n/10 ConcreteObserver\T1/cmr/m/n/10 : (Observer) Mantiene un rifer
+imento ad un oggetto ConcreteSubject. Contiene
+ []
+
+<img/IC51233.jpg, id=105, 429.605pt x 273.02pt>
+File: img/IC51233.jpg Graphic file (type jpg)
+<use img/IC51233.jpg>
+Package pdftex.def Info: img/IC51233.jpg  used on input line 895.
+(pdftex.def)             Requested size: 322.20296pt x 204.7645pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[26 <./img/IC68568.jpg>] [27 <./img/IC51233.jpg>] [28]
 (esempi_design_pattern.aux) ) 
 Here is how much of TeX's memory you used:
- 6313 strings out of 495223
- 89052 string characters out of 3181619
- 308551 words of memory out of 3000000
- 9521 multiletter control sequences out of 15000+200000
+ 6360 strings out of 495223
+ 89731 string characters out of 3181619
+ 309551 words of memory out of 3000000
+ 9564 multiletter control sequences out of 15000+200000
  9340 words of font info for 22 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
- 44i,8n,42p,1172b,1688s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,8n,42p,1176b,1688s stack positions out of 5000i,500n,10000p,200000b,50000s
  </home/daniel/.miktex/texmfs/data/fonts/pk/ljfour
 /jknappen/ec/dpi600/ectt0900.pk> </home/daniel/.miktex/texmfs/data/fonts/pk/ljf
 our/jknappen/ec/dpi600/ecbx1200.pk> </home/daniel/.miktex/texmfs/data/fonts/pk/
@@ -775,9 +843,9 @@ ljfour/jknappen/ec/dpi600/ecrm1000.pk> </home/daniel/.miktex/texmfs/data/fonts/
 pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk> </home/daniel/.miktex/texmfs/data/fon
 ts/pk/ljfour/jknappen/ec/dpi600/ecbx1440.pk></home/daniel/.miktex/texmfs/instal
 l/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on esempi_design_pattern.pdf (21 pages, 317104 bytes).
+Output written on esempi_design_pattern.pdf (28 pages, 484048 bytes).
 PDF statistics:
- 352 PDF objects out of 1000 (max. 8388607)
+ 389 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 

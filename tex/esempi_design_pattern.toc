@@ -23,3 +23,10 @@
 \contentsline {subsection}{\numberline {2.3}Abstract Factory}{19}
 \contentsline {subsubsection}{\numberline {2.3.1}Descrizione}{19}
 \contentsline {subsubsection}{\numberline {2.3.2}Esempio}{20}
+\contentsline {section}{\numberline {3}Design pattern - COMPORTAMENTALI}{22}
+\contentsline {subsection}{\numberline {3.1}Command}{22}
+\contentsline {subsubsection}{\numberline {3.1.1}Descrizione}{22}
+\contentsline {subsubsection}{\numberline {3.1.2}Esempio}{23}
+\contentsline {subsection}{\numberline {3.2}Observer}{26}
+\contentsline {subsubsection}{\numberline {3.2.1}Descrizione}{26}
+\contentsline {subsubsection}{\numberline {3.2.2}Esempio}{27}

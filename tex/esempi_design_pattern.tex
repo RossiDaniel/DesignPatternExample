@@ -746,4 +746,213 @@ Nell’esempio proposto l’interfaccia IService fornisce il contratto che deve 
                             }
                             
                         \end{lstlisting}
-        \end{document}
+                        \newpage
+                        \section{Design pattern - COMPORTAMENTALI}
+                        \subsection{Command}
+                        \subsubsection{Descrizione}
+                        Il pattern Command (noto anche come Action o Transaction) permette di inoltrare richieste ad oggetti senza conoscere assolutamente nulla dell’operazione da eseguire o del destinatario della richiesta. Questo è possibile per il fatto che il pattern in questione tratta la richiesta come un oggetto differente rispetto sia al richiedente che all’oggetto destinatario. Questo oggetto specifica l’azione da svolgere sul destinatario, sfruttandone i comportamenti in modo da tale da poter portare a termine la richiesta.
+                        \begin{itemize}
+                            \item per parametrizzare gli oggetti rispetto ad una azione da compiere;                            
+                            \item per specificare, accodare ed eseguire svariate richieste in tempi diversi, anche trasferendo un comando da un contesto di esecuzione ad un altro;
+                            \item per consentire l’annullamento delle operazioni eseguite (undo, rollback), mantenendo preventivamente lo stato per annullare gli effetti dei comandi stessi.
+                        \end{itemize}
+                        Il vantaggio più significativo nell’applicazione di questo pattern è il fatto di ottenere un perfetto disaccoppiamento tra l’oggetto che invoca il comando e il destinatario, ovvero quello che conosce il modo per portare a termine l’operazione. Questo aspetto consente di poter aggiungere comandi ulteriori associati a destinatari diversi in modo abbastanza immediato senza che sia necessario modificare le classi già esistenti. Inoltre il fatto che i comandi siano oggetti distinti permette di poterli eventualmente aggregare insieme (applicando il pattern Composite) allo scopo di formare un comando complesso, costituito da una serie arbitraria di azioni.
+
+                        \begin{figure}[h!] %img
+                            \centering
+                            \includegraphics[scale=0.50]{img/IC138773}
+                            \caption{classAbstractFactory}
+                        \end{figure}
+                        I partecipanti di questo pattern sono (tra parentesi sono indicati gli oggetti equivalenti nell’esempio proposto successivamente):
+                            
+                        \begin{itemize}
+                            \item \textbf{Command}: (ICommand) Definisce l’interfaccia di riferimento per ogni comando.
+                            \item \textbf{ConcreteCommand}: (Open, Read, Write e Close) Definisce un legame tra il Receiver e un’azione. Implementa in modo particolare il metodo Execute() invocando i metodi del Receiver.
+                            \item \textbf{Invoker}: (Reader e Writer) Aggrega i diversi comandi e delega a loro l’esecuzione delle azioni previste.
+                            \item \textbf{Receiver}: (System.Console) Conosce il modo di eseguire le operazioni associate ad una particolare richiesta.
+                            \item \textbf{Client}: (Program) Tramite l’Invoker attiva ed esegue un ConcreteCommand che va a interessare il Receiver corrispondente.
+                        \end{itemize}
+                        
+                        \begin{figure}[h!] %img
+                            \centering
+                            \includegraphics[scale=0.75]{img/IC65512}	
+                            \caption{esempio di classAbstractFactory}
+                        \end{figure}
+                
+                        \newpage
+                        \subsubsection{Esempio}
+                        L’esempio proposto si riferisce all’esecuzione di due sequenze di comandi da parte delle classi Reader e Writer. L’esecuzione di ciascuna azione consiste nella scrittura sulla console di una stringa contenente il nome di ciascun comando appartenente alla sequenza. L’oggetto di destinazione pertanto è System.Console: Reader e Writer portano a compimento le operazioni desiderate sfruttando il suo metodo WriteLine(string). I singoli comandi sono classi diverse che implementano in modo particolare il metodo Execute(), definito nell’interfaccia ICommand. Si noti come il client (classe Program) sia completamente all’oscuro sia di come ciascun comando viene eseguito, sia di quale sequenza effettiva di azioni viene intrapresa di volta in volta.
+                            \begin{lstlisting}
+                                using System;
+
+                                namespace DesignPatterns.Command
+                                {
+                                    public interface ICommand
+                                    {
+                                        void Execute();
+                                    }
+                                
+                                    public class Open : ICommand
+                                    {
+                                        public virtual void Execute()
+                                        {
+                                            Console.WriteLine("Open");
+                                        }
+                                    }
+                                
+                                    public class Read : ICommand
+                                    {
+                                        public virtual void Execute()
+                                        {
+                                            Console.WriteLine("Read");
+                                        }
+                                    }
+                                    
+                                    public class Write : ICommand
+                                    {
+                                        public virtual void Execute()
+                                        {
+                                            Console.WriteLine("Write");
+                                        }
+                                    }
+                                
+                                    public class Close : ICommand
+                                    {
+                                        public virtual void Execute()
+                                        {
+                                            Console.WriteLine("Close");
+                                        }
+                                    }
+                                
+                                    public class Reader
+                                    {
+                                        private ICommand[] _commands;
+                                
+                                        public Reader()
+                                        {
+                                            _commands = new ICommand[] { new Open(), new Read(), new Close() };
+                                        }
+                                
+                                        public void Read()
+                                        {
+                                            foreach (ICommand cmd in _commands)
+                                                cmd.Execute();
+                                        }
+                                    }
+                                
+                                    public class Writer
+                                    {
+                                        private ICommand[] _commands;
+                                
+                                        public Writer()
+                                        {
+                                            _commands = new ICommand[] { new Open(), new Write(), new Close() };
+                                        }
+                                
+                                        public void Write()
+                                        {
+                                            foreach (ICommand cmd in _commands)
+                                                cmd.Execute();
+                                        }
+                                    }
+                                
+                                    public class Program
+                                    {
+                                        static void Main(string[] args)
+                                        {
+                                            Reader reader = new Reader();
+                                            reader.Read();
+                                            Writer writer = new Writer();
+                                            writer.Write();
+                                            Console.ReadLine();
+                                        }
+                                    }
+                                }
+                            \end{lstlisting}
+                            \newpage
+                            \subsection{Observer}
+                            \subsubsection{Descrizione}
+                            Il pattern Observer (noto anche col nome Publish-Subscribe) permette di definire una dipendenza uno a molti fra oggetti, in modo tale che se un oggetto cambia il suo stato interno, ciascuno degli oggetti dipendenti da esso viene notificato e aggiornato automaticamente. L’Observer nasce dall’esigenza di mantenere un alto livello di consistenza fra classi correlate, senza peraltro produrre situazioni di forte dipendenza e accoppiamento elevato.
+
+                            Il pattern Observer si presta ad essere utilizzato in diversi casi. Ad esempio, quando un’astrazione presenta due diversi aspetti tra loro dipendenti, è possibile definire due classi in cui incapsulare questi aspetti in modo tale da poterli utilizzare in maniera indipendente. In questo scenario occorre comunque prevedere un meccanismo di comunicazione che permetta di mantenere la consistenza tra le istanze delle due classi e il pattern Observer fornisce una soluzione elegante al problema senza generare accoppiamento. Un’altra situazione tipica di utilizzo si ha quando la modifica dello stato di un oggetto (per esempio, un controllo dell’interfaccia utente) implica un cambiamento dello stato di altri oggetti correlati, a prescindere dal loro numero (per esempio, altri controlli). In questo caso la modifica dello stato dell’oggetto (detto anche Publisher) si deve propagare agli oggetti correlati (detti anche Subscriber) in modo tale che essi possano aggiornare il loro stato interno di conseguenza.
+    
+                            \begin{figure}[h!] %img
+                                \centering
+                                \includegraphics[scale=0.50]{img/IC68568}
+                                \caption{classObserver}
+                            \end{figure}
+                            I partecipanti di questo pattern sono:
+                                
+                            \begin{itemize}
+                                \item \textbf{Subject}: (delegate Subject.Notify) Conosce i suoi Observer. Fornisce l’interfaccia per associare e rimuovere oggetti Observer.
+                                \item \textbf{Observer}: Fornisce l’interfaccia di notifica per gli oggetti a cui devono essere segnalati i cambiamenti di stato di Subject.
+                                \item \textbf{ConcreteSubject}: (Subject) Contiene lo stato monitorato dagli Observer a cui viene inviata la notifica.
+                                \item \textbf{ConcreteObserver}: (Observer) Mantiene un riferimento ad un oggetto ConcreteSubject. Contiene le informazioni da mantenere sincronizzate con lo stato del Subject. Implementa il metodo di gestione della notifica da eseguire allo scopo di mantenere sincronizzati gli stati degli oggetti.
+                            \end{itemize}
+                            
+                            \begin{figure}[h!] %img
+                                \centering
+                                \includegraphics[scale=0.75]{img/IC51233}	
+                                \caption{esempio di classObserver}
+                            \end{figure}
+                    
+                            \newpage
+                            \subsubsection{Esempio}
+                            Il meccanismo per inviare notifiche nell’ambito del .NET Framework è fornito in modo nativo dai tipi delegate e dagli eventi. Una classe che funge da Publisher (classe Subject) espone in generale sulla sua interfaccia una serie di eventi corrispondenti ad un tipo particolare di delegate. Le classi Subscriber (classe Observer) sottoscrivono l’evento e ad esso associano un metodo interno (comunemente detto event handler) che deve rispettare la firma definita dal tipo delegate associato all’evento. L’event handler viene chiamato nel momento in cui il Publisher inoltra ai suoi Subscriber la notifica, rendendo possibile in questo modo l’esecuzione di codice in ciascun Subscriber al variare dello stato interno del Publisher.
+                                \begin{lstlisting}
+                                    using System;
+
+                                    namespace DesignPatterns.Observer
+                                    {
+                                        public class Subject
+                                        {
+                                            public delegate void Notify();
+                                    
+                                            public event Notify OnNotify;
+                                    
+                                            public void DoSomething()
+                                            {
+                                                if (OnNotify != null)
+                                                {
+                                                    Console.WriteLine("Subject fires event");
+                                                    OnNotify();
+                                                }
+                                            }
+                                        }
+                                    
+                                        public class Program
+                                        {
+                                            public class Observer
+                                            {
+                                                private static int _idx = 1;
+                                                private int _number;
+                                    
+                                                public Observer(Subject s)
+                                                {
+                                                    s.OnNotify += new Subject.Notify(EventHandler);
+                                                    _number = _idx++;
+                                                }
+                                    
+                                                public override string ToString()
+                                                {
+                                                    return _number.ToString();
+                                                }
+                                    
+                                                public void EventHandler()
+                                                {
+                                                    Console.WriteLine("Observer {0} was called by subject", this);
+                                                }
+                                            }
+                                    
+                                            public static void Main(string[] args)
+                                            {
+                                                Subject s = new Subject();
+                                                Observer o1 = new Observer(s);
+                                                Observer o2 = new Observer(s);
+                                                s.DoSomething();
+                                                Console.ReadLine();
+                                            }
+                                        }
+                                    }                                \end{lstlisting}
+    
+                        \end{document}
